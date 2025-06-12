@@ -1,0 +1,3 @@
+/Users/szymonros/Desktop/BibliotekaMN/cmake-build-debug/CMakeFiles/BibliotekaMN.dir
+/Users/szymonros/Desktop/BibliotekaMN/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/szymonros/Desktop/BibliotekaMN/cmake-build-debug/CMakeFiles/rebuild_cache.dir
