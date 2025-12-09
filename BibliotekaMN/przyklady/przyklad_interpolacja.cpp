@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    // Przykład 1: Interpolacja funkcji kwadratowej
+    // interpolacja funkcji kwadratowej
     vector<double> wezly_x = {-2, -1, 0, 1, 2};
     vector<double> wartosci_y = {4, 1, 0, 1, 4}; // f(x) = x^2
 
@@ -19,30 +19,29 @@ int main() {
         cout << "(" << wezly_x[i] << ", " << wartosci_y[i] << ")" << endl;
     }
 
-    // Interpolacja w różnych punktach
+    // interpolacja w roznych punktach
     vector<double> punkty_testowe = {-1.5, -0.5, 0.5, 1.5};
     cout << "\nInterpolacja w punktach testowych:" << endl;
     for (double x : punkty_testowe) {
         double wynik = biblioteka_numeryczna::interpolacjaLagrangea(wezly_x, wartosci_y, x);
-        double rzeczywista = x * x; // rzeczywista wartość
+        double rzeczywista = x * x; 
         cout << "x = " << x << ", interpolacja = " << wynik
              << ", rzeczywista = " << rzeczywista
              << ", błąd = " << abs(wynik - rzeczywista) << endl;
     }
 
-    // Przykład 2: Wczytywanie danych z pliku (podobnie jak w oryginalnym kodzie)
-    cout << "\n=== Przykład z danymi z pliku ===" << endl;
+    //  wczytywanie danych z pliku 
+    cout << "\nDane z pliku" << endl;
 
-    // Symulujemy dane z pliku
     vector<double> wszystkie_x, wszystkie_y;
     for (int i = 0; i <= 20; i++) {
         wszystkie_x.push_back(i * 0.5);
-        wszystkie_y.push_back(sin(i * 0.5)); // f(x) = sin(x)
+        wszystkie_y.push_back(sin(i * 0.5)); // y = sin(x)
     }
 
-    cout << "Analiza błędu interpolacji dla funkcji sin(x):" << endl;
+    cout << "Analiza bledu interpolacji dla funkcji sin(x):" << endl;
 
-    // Testuj różne kroki węzłów (podobnie jak w oryginalnym kodzie)
+    //różne kroki węzłów 
     for (int krok = 1; krok <= 5; krok++) {
         vector<double> wezly_wybranych_x, wezly_wybranych_y;
         biblioteka_numeryczna::wybierzWezly(wszystkie_x, wszystkie_y, krok,
@@ -51,11 +50,11 @@ int main() {
         double sredni_blad = biblioteka_numeryczna::sredniaBladKwadratowy(
             wszystkie_x, wszystkie_y, wezly_wybranych_x, wezly_wybranych_y);
 
-        cout << "Węzły co " << krok << " punkt (łącznie " << wezly_wybranych_x.size()
-             << " węzłów), średni błąd kwadratowy = " << sredni_blad << endl;
+        cout << "Wezly co " << krok << " punkt (lacznie " << wezly_wybranych_x.size()
+             << " wezlow), sredni blad kwadratowy = " << sredni_blad << endl;
     }
 
-    // Interpolacja w wybranym punkcie
+    // interpolacja w wybranym punkcie
     cout << "\nPodaj wartość argumentu dla interpolacji: ";
     double argument;
     cin >> argument;
@@ -66,10 +65,10 @@ int main() {
     double wynik_interpolacji = biblioteka_numeryczna::interpolacjaLagrangea(
         wezly_co_5_x, wezly_co_5_y, argument);
 
-    cout << "Wartość wielomianu interpolacyjnego dla argumentu " << argument
+    cout << "Wartosc wielomianu interpolacyjnego dla argumentu " << argument
          << " wynosi: " << wynik_interpolacji << endl;
-    cout << "Rzeczywista wartość sin(" << argument << ") = " << sin(argument) << endl;
-    cout << "Błąd interpolacji = " << abs(wynik_interpolacji - sin(argument)) << endl;
+    cout << "Rzeczywista wartosc sin(" << argument << ") = " << sin(argument) << endl;
+    cout << "Blad interpolacji = " << abs(wynik_interpolacji - sin(argument)) << endl;
 
     return 0;
 }
