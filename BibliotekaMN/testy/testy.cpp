@@ -28,33 +28,31 @@ void wypiszWynikTestu(const string& nazwaTestu, bool wynik) {
     cout << "[" << (wynik ? "PASS" : "FAIL") << "] " << nazwaTestu << endl;
 }
 
-// =============================================================================
+
 // TESTY DLA MODUŁU UKŁADY LINIOWE
-// =============================================================================
+
 
 void testEliminacjaGaussa1() {
     cout << "\n=== TESTY UKŁADÓW LINIOWYCH ===" << endl;
 
-    // Test 1: Prosty układ 2x2
+    // Test 1: uklad 2x2
     vector<vector<double>> A = {{2, 1}, {1, 3}};
     vector<double> b = {3, 4};
 
     vector<double> x = eliminacjaGaussa(A, b);
 
-    // Sprawdzenie: 2*x[0] + 1*x[1] = 3, 1*x[0] + 3*x[1] = 4
-    // Rozwiązanie: x[0] = 1, x[1] = 1
     bool test1 = porownajDouble(x[0], 1.0) && porownajDouble(x[1], 1.0);
     wypiszWynikTestu("eliminacjaGaussa - test 1 (układ 2x2)", test1);
 }
 
 void testEliminacjaGaussa2() {
-    // Test 2: Układ 3x3
+    // Test 2: uklad 3x3
     vector<vector<double>> A = {{1, 2, 3}, {2, -1, 1}, {3, 0, -1}};
     vector<double> b = {9, 8, 3};
 
     vector<double> x = eliminacjaGaussa(A, b);
 
-    // Weryfikacja przez podstawienie
+    // sprawdzenie przez podstawienie
     double sprawdzenie1 = A[0][0]*x[0] + A[0][1]*x[1] + A[0][2]*x[2];
     double sprawdzenie2 = A[1][0]*x[0] + A[1][1]*x[1] + A[1][2]*x[2];
     double sprawdzenie3 = A[2][0]*x[0] + A[2][1]*x[1] + A[2][2]*x[2];
@@ -66,14 +64,14 @@ void testEliminacjaGaussa2() {
 }
 
 void testMetodaGaussaSeidela1() {
-    // Test 1: Układ z dominującą przekątną
+    // Test 1: uklad z dominującą przekątną
     vector<vector<double>> A = {{4, 1}, {1, 3}};
     vector<double> b = {5, 4};
     vector<double> x0 = {0, 0};
 
     vector<double> x = metodaGaussaSeidela(A, b, x0);
 
-    // Weryfikacja przez podstawienie
+    // sprawdzenie przez podstawienie
     double sprawdzenie1 = A[0][0]*x[0] + A[0][1]*x[1];
     double sprawdzenie2 = A[1][0]*x[0] + A[1][1]*x[1];
 
@@ -82,14 +80,14 @@ void testMetodaGaussaSeidela1() {
 }
 
 void testMetodaGaussaSeidela2() {
-    // Test 2: Większy układ
+    // Test 2: wiekszy układ
     vector<vector<double>> A = {{5, 1, 1}, {1, 4, 1}, {1, 1, 3}};
     vector<double> b = {7, 6, 5};
     vector<double> x0 = {0, 0, 0};
 
     vector<double> x = metodaGaussaSeidela(A, b, x0);
 
-    // Weryfikacja
+    // sprawdzenie
     double sprawdzenie1 = A[0][0]*x[0] + A[0][1]*x[1] + A[0][2]*x[2];
     double sprawdzenie2 = A[1][0]*x[0] + A[1][1]*x[1] + A[1][2]*x[2];
     double sprawdzenie3 = A[2][0]*x[0] + A[2][1]*x[1] + A[2][2]*x[2];
@@ -101,14 +99,12 @@ void testMetodaGaussaSeidela2() {
 }
 
 void testRozkladLU1() {
-    // Test 1: Prosta macierz 2x2
+    // Test 1:  2x2
     vector<vector<double>> A = {{2, 1}, {1, 1}};
     vector<vector<double>> L, U;
     vector<int> P;
 
     rozkladLU_zPivotingiem(A, L, U, P);
-
-    // Sprawdzenie wymiarów
     bool test1 = (L.size() == 2 && U.size() == 2 && P.size() == 2);
     wypiszWynikTestu("rozkladLU_zPivotingiem - test 1 (wymiary)", test1);
 }
