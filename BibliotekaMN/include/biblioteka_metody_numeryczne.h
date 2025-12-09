@@ -2,16 +2,16 @@
 // Created by Szymon Ros on 10/06/2025.
 //
 // BIBLIOTEKA METOD NUMERYCZNYCH
-// =============================
+// 
 //
 // Główny plik nagłówkowy biblioteki metod numerycznych.
-// Zawiera wszystkie niezbędne nagłówki do pracy z metodami numerycznymi.
+// 
 //
 // Dostępne moduły:
 // - uklady_liniowe.h: Rozwiązywanie układów równań liniowych
 // - interpolacja.h: Interpolacja wielomianowa (Lagrange, Newton)
 // - aproksymacja.h: Aproksymacja funkcji metodą najmniejszych kwadratów
-// - calkowanie_numeryczne.h: Całkowanie numeryczne (prostokąty, trapezy, Simpson, Gauss-Legendre)
+// - calkowanie_numeryczne.h: Całkowanie numeryczne (prostokąty, trapezy, Simpson, Gauss)
 // - rownania_rozniczkowe.h: Rozwiązywanie równań różniczkowych zwyczajnych
 // - rownania_nieliniowe.h: Znajdowanie pierwiastków równań nieliniowych
 //
